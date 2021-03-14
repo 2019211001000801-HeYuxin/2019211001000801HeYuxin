@@ -1,4 +1,4 @@
-package com.hyx.week2.demo;
+package com.hyx.week2;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
