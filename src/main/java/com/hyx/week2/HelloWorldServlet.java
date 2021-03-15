@@ -16,7 +16,4 @@ public class HelloWorldServlet extends HttpServlet {
         Date date=new Date();
         writer.println("Date and Time"+date.toString());
     }
-    public void doPost(HttpServletRequest request,HttpServletResponse response){
-
-    }
 }
