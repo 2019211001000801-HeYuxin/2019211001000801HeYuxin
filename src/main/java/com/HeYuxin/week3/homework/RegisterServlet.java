@@ -22,11 +22,11 @@ public class RegisterServlet extends HttpServlet {
         String BirthDate = request.getParameter("BirthDate");
         PrintWriter writer = response.getWriter();
 
-        writer.println("<br>Username :" + Username);
-        writer.println("<br>Password :" + password);
-        writer.println("<br>Email :" + Email);
-        writer.println("<br>Gender :" + Gender);
-        writer.println("<br>BirthDate :" + BirthDate);
+        writer.println("<br/>Username :" + Username);
+        writer.println("<br/>Password :" + password);
+        writer.println("<br/>Email :" + Email);
+        writer.println("<br/>Gender :" + Gender);
+        writer.println("<br/>BirthDate :" + BirthDate);
 
         writer.close();
 

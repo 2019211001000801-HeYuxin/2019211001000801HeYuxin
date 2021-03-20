@@ -14,7 +14,7 @@
 New User Registration!<br/><br/>
 <form method="post" action="/2019211001000801HeYuxin_war_exploded/register">
     <input type="text" name="Username" placeholder ="Username" style="background:#FFFCEC;border: 0;width:300px;height:30px;margin-bottom: 10px;" required autofocus><br/>
-    <input type="password" name="password" minlength="8" placeholder ="password" style="background:#FFFCEC;border: 0;width:300px;height:30px;margin-bottom: 10px;"><br/>
+    <input type="password" name="password" minlength="8" placeholder ="Password" style="background:#FFFCEC;border: 0;width:300px;height:30px;margin-bottom: 10px;"><br/>
     <input type="email" name="Email" placeholder ="Email" style="background:#FFFCEC;border: 0;width:300px;height:30px;margin-bottom: 10px;"required autofocus><br/>
     Gender<input type="radio" name="sex" value="male" checked>Male
     <input type="radio" name="sex" value="female" style="margin-bottom: 10px;">Female
