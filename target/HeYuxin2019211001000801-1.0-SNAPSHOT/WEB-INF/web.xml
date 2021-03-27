@@ -4,19 +4,35 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <servlet>
-        <servlet-name>Alva</servlet-name>
+        <servlet-name>Generous</servlet-name>
         <servlet-class>com.HeYuxin.week2.homework.HelloWorldServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>com.HeYuxin.week3.homework.RegisterServlet</servlet-class>
     </servlet>
+<!--    <servlet>-->
+<!--        <servlet-name>ConfigDemoServlet</servlet-name>-->
+<!--        <servlet-class>com.HeYuxin.week4.homework.ConfigDemoServlet</servlet-class>-->
+<!--        <init-param>-->
+<!--            <param-name>name</param-name>-->
+<!--            <param-value>He Yuxin</param-value>-->
+<!--        </init-param>-->
+<!--        <init-param>-->
+<!--            <param-name>studentId</param-name>-->
+<!--            <param-value>2019211001000801</param-value>-->
+<!--        </init-param>-->
+<!--    </servlet>-->
     <servlet-mapping>
-        <servlet-name>Alva</servlet-name>
+        <servlet-name>Generous</servlet-name>
         <url-pattern>/hello</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>ConfigDemoServlet</servlet-name>-->
+<!--        <url-pattern>/config</url-pattern>-->
+<!--    </servlet-mapping>-->
 </web-app>
