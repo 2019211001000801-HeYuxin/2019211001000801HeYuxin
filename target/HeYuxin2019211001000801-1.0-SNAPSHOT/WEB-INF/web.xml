@@ -7,10 +7,30 @@
         <servlet-name>Generous</servlet-name>
         <servlet-class>com.HeYuxin.week2.homework.HelloWorldServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>com.HeYuxin.week3.homework.RegisterServlet</servlet-class>
-    </servlet>
+    <servlet-mapping>
+        <servlet-name>Generous</servlet-name>
+        <url-pattern>/HelloWorldServlet</url-pattern>
+    </servlet-mapping>
+    <context-param>
+        <param-name>driver</param-name>
+        <param-value>com.microsoft.sqlserver.jdbc.SQLServerDriver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>url</param-name>
+        <param-value>jdbc:sqlserver://localhost:1433;databaseName=userdb</param-value>
+    </context-param>
+    <context-param>
+        <param-name>username</param-name>
+        <param-value>sa</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>hyx10281128</param-value>
+    </context-param>
+<!--    <servlet>-->
+<!--        <servlet-name>RegisterServlet</servlet-name>-->
+<!--        <servlet-class>com.HeYuxin.week3.homework.RegisterServlet</servlet-class>-->
+<!--    </servlet>-->
 <!--    <servlet>-->
 <!--        <servlet-name>ConfigDemoServlet</servlet-name>-->
 <!--        <servlet-class>com.HeYuxin.week4.homework.ConfigDemoServlet</servlet-class>-->
@@ -23,14 +43,10 @@
 <!--            <param-value>2019211001000801</param-value>-->
 <!--        </init-param>-->
 <!--    </servlet>-->
-    <servlet-mapping>
-        <servlet-name>Generous</servlet-name>
-        <url-pattern>/hello</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/register</url-pattern>
-    </servlet-mapping>
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>RegisterServlet</servlet-name>-->
+<!--        <url-pattern>/register</url-pattern>-->
+<!--    </servlet-mapping>-->
 <!--    <servlet-mapping>-->
 <!--        <servlet-name>ConfigDemoServlet</servlet-name>-->
 <!--        <url-pattern>/config</url-pattern>-->
