@@ -1,0 +1,28 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: 41509
+  Date: 2021/4/1
+  Time: 20:34
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <title>Title</title>
+</head>
+<br>
+<%@include file="header.jsp"%>
+This is my Jsp page.</br></br>
+<form method="post" action="/2019211001000801HeYuxin_war_exploded/register">
+    <input type="text" name="Username" placeholder ="Username" style="background:#FFFCEC;border: 0;width:300px;height:30px;margin-bottom: 10px;" required autofocus><br/>
+    <input type="password" name="password" minlength="8" placeholder ="Password" style="background:#FFFCEC;border: 0;width:300px;height:30px;margin-bottom: 10px;"><br/>
+    <input type="email" name="Email" placeholder ="Email" style="background:#FFFCEC;border: 0;width:300px;height:30px;margin-bottom: 10px;"required autofocus><br/>
+    Gender<input type="radio" name="sex" value="male" checked>Male
+    <input type="radio" name="sex" value="female" style="margin-bottom: 10px;">Female
+    <br/>
+    <input type="date" name="BirthDate" placeholder ="Date of Birth(yyyy-mm-dd)" style="background:#FFFCEC;border: 0;height:30px;width:300px;margin-bottom: 10px;"><br/>
+    <input type="submit" value="Register" style="background:#FF9224; color:#fff; width:100px; height:30px;border: 0;"/>
+</form>
+<%@ include file="footer.jsp"%>
+</body>
+</html>
