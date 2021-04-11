@@ -14,17 +14,19 @@ public class LoginServlet extends HttpServlet{
     Connection con = null;
     @Override
     public void init() throws ServletException{
-            String driver = getServletContext().getInitParameter("driver");
-            String url = getServletContext().getInitParameter("url");
-            String username = getServletContext().getInitParameter("username");
-            String password = getServletContext().getInitParameter("password");
-
-            try{
-                Class.forName(driver);
-                con = DriverManager.getConnection(url, username, password);
-            } catch (ClassNotFoundException | SQLException e) {
-                e.printStackTrace();
-            }
+        super.init();
+//            String driver = getServletContext().getInitParameter("driver");
+//            String url = getServletContext().getInitParameter("url");
+//            String username = getServletContext().getInitParameter("username");
+//            String password = getServletContext().getInitParameter("password");
+//
+//            try{
+//                Class.forName(driver);
+//                con = DriverManager.getConnection(url, username, password);
+//            } catch (ClassNotFoundException | SQLException e) {
+//                e.printStackTrace();
+//            }
+        con = (Connection) getServletContext().getAttribute("con");
         }
 
     @Override
@@ -48,17 +50,24 @@ public class LoginServlet extends HttpServlet{
             result = pre.executeQuery();
             if (result.next()){
                 isValid = true;
+//                writer.println("Login Success!!!");
+//                writer.println("Welcome,"+username);
+                request.setAttribute("id",result.getInt("id"));
+                request.setAttribute("username",result.getString("Username"));
+                request.setAttribute("password",result.getString("password"));
+                request.setAttribute("email",result.getString("Email"));
+                request.setAttribute("gender",result.getString("Gender"));
+                request.setAttribute("birthDate",result.getString("BirthDate"));
+                request.getRequestDispatcher("userInfo.jsp").forward(request,response);
             }
-        }
-        catch (Exception e)
+        }catch (Exception e)
         {
             e.printStackTrace();
         }
-        if(isValid){
-            writer.println("Login Success!!!");
-            writer.println("Welcome,"+username);
-        }else{
-            writer.println("Username or Password Error!!!");
+        if(!isValid){
+//            writer.println("Username or Password Error!!!");
+            request.setAttribute("message","username or Password Error!!!");
+            request.getRequestDispatcher("login.jsp").forward(request,response);
         }
 
 }

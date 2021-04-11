@@ -13,6 +13,11 @@
 <br>
 <%@include file="header.jsp"%>
 <h1>Login</h1>
+<%
+    if(request.getAttribute("message")==null){
+       out.print("<h3>"+request.getAttribute("message")+"</h3>");
+    }
+%>
 <form method="post" action="/2019211001000801HeYuxin_war_exploded/login">
     Username:<input type="text" name="username" ><br/>
     Password:<input type="password" name="password"><br/>
