@@ -1,5 +1,8 @@
 package com.HeYuxin.week5.homework;
 
+import com.HeYuxin.dao.UserDao;
+import com.HeYuxin.model.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,18 +34,32 @@ public class LoginServlet extends HttpServlet{
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+        request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         PrintWriter writer = response.getWriter();
-
-        boolean isValid = false;
-        PreparedStatement pre = null;
-        ResultSet result = null;
+        UserDao userDao=new UserDao();
         try {
+            User user = userDao.findByUsernamePassword(con, username, password);
+            if(user!=null){
+                request.setAttribute("user",user);
+                request.getRequestDispatcher("WEB-INF/views/userInfo.jsp").forward(request,response);
+            }else{
+                request.setAttribute("message","Username or Password Error!!!");
+                request.getRequestDispatcher("WEB-INF/views/login.jsp").forward(request,response);
+            }
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+//        boolean isValid = false;
+//        PreparedStatement pre = null;
+//        ResultSet result = null;
+/*        try {
             String sql = "select * from usertable where username=? and password=?";
             pre = con.prepareStatement(sql);
             pre.setString(1, username);
@@ -69,6 +86,6 @@ public class LoginServlet extends HttpServlet{
             request.setAttribute("message","username or Password Error!!!");
             request.getRequestDispatcher("login.jsp").forward(request,response);
         }
-
+*/
 }
 }
