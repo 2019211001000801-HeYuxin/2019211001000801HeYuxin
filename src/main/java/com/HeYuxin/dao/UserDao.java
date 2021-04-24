@@ -2,10 +2,8 @@ package com.HeYuxin.dao;
 
 import com.HeYuxin.model.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -23,6 +21,16 @@ public class UserDao implements IUserDao{
 
     @Override
     public int updateUser(Connection con, User user) throws SQLException {
+        try{
+            Statement createDbStatement = con.createStatement();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            String dbRequire="update usertable set username='"+user.getUsername()+"',password='"+user.getPassword()+"',email='"+user.getEmail()+"',gender='"+user.getGender()+"',birthdate='"+simpleDateFormat.format(user.getBirthDate())+"' where id="+user.getId();
+            createDbStatement.executeUpdate(dbRequire);
+            System.out.println("update "+user.getId()+"success");
+            return 1;
+        }catch(Exception e) {
+            System.out.println(e);
+        }
         return 0;
     }
 

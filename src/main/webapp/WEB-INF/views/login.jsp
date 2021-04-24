@@ -15,10 +15,28 @@
         out.print("<h3>"+request.getAttribute("message")+"</h3>");
     }
 %>
+<%
+    Cookie[] allCookies=request.getCookies();
+    String username="",password="",rememberMeval="";
+    if(allCookies!=null){
+        for(Cookie c:allCookies){
+            if(c.getName().equals("cUsername")){
+                username=c.getValue();
+            }
+            if(c.getName().equals("cPassword")){
+                password=c.getValue();
+            }
+            if(c.getName().equals("cRememberMe")){
+                rememberMeval=c.getValue();
+            }
+        }
+    }
+%>
 <form method="post" action="/2019211001000801HeYuxin_war_exploded/login">
-    Username:<input type="text" name="username" ><br/>
-    Password:<input type="password" name="password"><br/>
-    <input type="submit" value="Login"/>
+    Username:<input type="text" name="username" value="<%=username%>"><br/>
+    Password:<input type="password" name="password" value="<%=password%>"><br/>
+    <input type="checkbox" name="rememberMe" value="1" <%=rememberMeval.equals("1")?"checked":""%>checked />  RememberMe<br/>
+  <input type="submit" value="Login"/>
 </form>
 </body>
 <%@ include file="footer.jsp"%>
