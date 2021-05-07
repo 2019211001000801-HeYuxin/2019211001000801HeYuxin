@@ -13,7 +13,7 @@
     User u=(User) session.getAttribute("user");
 %>
 <form method="post" action="updateUser">
-    <input type="hidden" id="id" name="id" value="<%=user.getId()%>">
+    <input type="hidden" id="id" name="id" value="<%=u.getId()%>">
     <input type="text" name="Username" placeholder ="Username"  value="<%=u.getUsername()%>" style="background:#FFFCEC;border: 0;width:300px;height:30px;margin-bottom: 10px;" required autofocus><br/>
     <input type="password" name="password" minlength="8" placeholder ="Password" value="<%=u.getPassword()%>"  style="background:#FFFCEC;border: 0;width:300px;height:30px;margin-bottom: 10px;"><br/>
     <input type="email" name="Email" placeholder ="Email"  value="<%=u.getEmail()%>"  style="background:#FFFCEC;border: 0;width:300px;height:30px;margin-bottom: 10px;"required autofocus><br/>

@@ -28,7 +28,7 @@ public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doPost(request,response);
+       request.getRequestDispatcher("WEB-INF/views/register.jsp").forward(request,response);
     }
 
     @Override
@@ -65,10 +65,12 @@ public class RegisterServlet extends HttpServlet {
 //                arr[a][3]=result.getString(4);
 //                arr[a++][4]=result.getString(5);
 //            }
+            //week-9
+            response.sendRedirect("login");
         } catch (Exception e) {
             System.out.println(e);
         }
-        response.sendRedirect("login.jsp");
+        //response.sendRedirect("login.jsp");
 //        writer.println("<table border=\"1\">");
 //        writer.println("<tr><th>ID</th><th>UserName</th><th>Password</th><th>Email</th><th>Gender</th><th>Birthdate</th></tr>");
 //        for(int i=0;i<a;i++) {
