@@ -24,11 +24,7 @@ public class AddProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Category category=new Category();
         List<Category> categoryList= null;
-        try {
-            categoryList = category.findAllCategory(con);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        categoryList = category.findAllCategory(con);
         request.setAttribute("categoryList",categoryList);
         String path="/WEB-INF/views/admin/addProduct.jsp";
         request.getRequestDispatcher(path).forward(request,response);
